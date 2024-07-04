@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -13,7 +13,7 @@ export class ArticleService {
   }
 
   async findAll() {
-    return await this.articleModel.find();
+    return await this.articleModel.find()
   }
 
   async findOne(id: string) {
